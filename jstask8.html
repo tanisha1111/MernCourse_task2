@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Task-8</title>
+    <style>
+        html {
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        body {
+            background-image: linear-gradient(to bottom right, #FEFFD7, #D060E1);
+            background-repeat: no-repeat;
+        }
+
+        table {
+            margin: auto;
+        }
+
+        input[type=text],
+        textarea {
+            width: 400px;
+        }
+
+        td:first-child {
+            text-align: right;
+            font-weight: bold;
+        }
+
+        td:last-child {
+            color: red;
+        }
+
+        .hide {
+            visibility: hidden;
+        }
+        button {
+            background-color: red;
+            padding: 2px 10px;
+            width: 120px;
+            border: solid 2px black;
+            border-radius: 20px;
+        }
+        button:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="color: darkblue;">Registration form</h1>
+    <form onsubmit="validate(event)" novalidate>
+        <table>
+            <tr>
+                <td><label for="fname">First Name</label></td>
+                <td><input type="text" name="fname" id="fname"></td>
+                <td class="hide" id="fname-msg">POOR</td>
+            </tr>
+            <tr>
+                <td><label for="lname">Last Name</label></td>
+                <td><input type="text" name="lname" id="lname"></td>
+                <td class="hide" id="lname-msg">POOR</td>
+            </tr>
+            <tr>
+                <td><label for="email">Email</label></td>
+                <td><input type="text" name="email" id="email"></td>
+                <td class="hide" id="email-msg">POOR</td>
+            </tr>
+            <tr>
+                <td><label for="pwd">Password</label></td>
+                <td><input type="text" name="pwd" id="pwd"></td>
+                <td class="hide" id="pwd-msg">POOR</td>
+            </tr>
+            <tr>
+                <td><label for="re-pwd">Re-enter Password</label></td>
+                <td><input type="text" name="re-pwd" id="re-pwd"></td>
+                <td class="hide" id="re-pwd-msg">POOR OR MISMATCH</td>
+            </tr>
+            <tr>
+                <td><label for="">Gender</label></td>
+                <td>
+                    <input type="radio" name="gender" id="male">
+                    <label for="male">Male</label>
+                    <br>
+                    <input type="radio" name="gender" id="female">
+                    <label for="female">Female</label>
+                </td>
+                <td class="hide" id="-msg">POOR</td>
+            </tr>
+            <tr>
+                <td><label for="age">Age</label></td>
+                <td><input type="text" name="age" id="age"></td>
+                <td class="hide" id="age-msg">POOR</td>
+            </tr>
+            <tr>
+                <td><label for="phone">Phone Number</label></td>
+                <td><input type="text" name="phone" id="phone"></td>
+                <td class="hide" id="phone-msg">POOR</td>
+            </tr>
+            <tr>
+                <td><label for="addr">Address</label></td>
+                <td><textarea name="addr" id="addr" rows="6"></textarea></td>
+                <td class="hide" id="addr-msg">POOR</td>
+            </tr>
+            <tr>
+                <td><label for="state">State</label></td>
+                <td><input type="text" name="state" id="state"></td>
+                <td class="hide" id="state-msg">POOR</td>
+            </tr>
+            <tr>
+                <td><label for="country">Country</label></td>
+                <td><select name="country" id="country">
+                        <option>Choose your contry</option>
+                        <option>India</option>
+                        <option>USA</option>
+                        <option>UK</option>
+                    </select></td>
+                <td class="hide" id="country-msg">POOR</td>
+            </tr>
+            <tr>
+                <td><label for="">Languages known</label></td>
+                <td>
+                    <input type="checkbox" name="lang" id="english" value="english">
+                    <label for="english">English</label>
+                    <input type="checkbox" name="lang" id="kannada" value="kannada">
+                    <label for="kannada">Kannada</label>
+                    <input type="checkbox" name="lang" id="hindi" value="hindi">
+                    <label for="hindi">Hindi</label>
+                    <input type="checkbox" name="lang" id="tamil" value="tamil">
+                    <label for="tamil">Tamil</label>
+                </td>
+                <td class="hide" id="lang-msg">POOR</td>
+            </tr>
+            <tr>
+                <td colspan="3" style="text-align: left; color: black; font-weight: normal;">
+                    <input type="checkbox" name="declare" id="declare">
+                    <label for="declare">Hereby I declare all the given details are true</label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="font-weight: normal;">Log in to <a href="">Ethnus</a> website</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="3" style="text-align: center; color: black; font-weight: normal;">
+                    <button type="submit">REGISTER</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        function validate(event){
+            event.preventDefault();
+            var ids = ["fname", "lname", "email", "pwd", "re-pwd", "age", "phone", "addr", "state"];
+            ids.forEach(id => {
+                if (!document.getElementById(id).value){
+                    document.getElementById(id+"-msg").classList.remove("hide")
+                } else {
+                    document.getElementById(id+"-msg").classList.add("hide")
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
